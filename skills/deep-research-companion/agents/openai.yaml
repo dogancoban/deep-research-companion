@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deep Research Companion"
+  short_description: "Research prompts, claim-by-claim answer checks and verified reports"
+  default_prompt: "Use $deep-research-companion to check whether this answer and its sources are right."

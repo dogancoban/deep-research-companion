@@ -1,0 +1,15 @@
+{
+  "lang": "{{Document language: en or tr (other languages: en labels)}}",
+  "subtitle": "{{One sentence under the title on the cover: what the research is about}}",
+  "topics": "{{Small line on the cover: the main topics separated by ' · '}}",
+  "date": "{{Month and year, e.g. October 2026}}",
+  "version": "1.0",
+  "tool": "{{The tool that collected the sources or wrote the checked answer, e.g. Perplexity}}",
+  "assistant": "{{The assistant running this skill, e.g. Claude, ChatGPT or Gemini}}",
+  "glossary": [
+    ["{{Term}}", "{{One-sentence definition from verified findings only. No glossary: make the list empty []}}"]
+  ],
+  "index": [
+    ["{{Name shown in the index}}", "{{Regular expression that finds it in the text; backslashes doubled in JSON, e.g. \\bterm\\b. No index: make the list empty []}}"]
+  ]
+}

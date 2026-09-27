@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace-manifest.json",
+  "name": "deep-research-companion",
+  "owner": {
+    "name": "Doğan Çoban",
+    "url": "https://github.com/dogancoban"
+  },
+  "description": "Install Deep Research Companion as a Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "deep-research-companion",
+      "source": "./",
+      "description": "Research with Perplexity, ChatGPT or Gemini and keep every claim tied to its source: better research prompts, claim-by-claim answer checks, and full verified reports.",
+      "license": "MIT",
+      "keywords": ["research", "deep research", "fact-check", "citations", "perplexity", "chatgpt", "gemini", "prompts"]
+    }
+  ]
+}
