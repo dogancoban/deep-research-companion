@@ -36,21 +36,25 @@ Use it when the user brings an AI answer and asks whether it is right.
 
 1. If the source links are missing, ask for them.
 2. Split the answer into checkable claims, one piece of information each. "X happened in Y on date T" is two claims: the date and the place. Mark opinions as opinions. Number the claims and note which source each cites. In a long answer, check the 20–30 claims that matter most for the user's goal and say which.
-3. Open each cited source with web browsing and check that it really says the claim. Open the cited sources first; search for other sources only when needed.
-   - A link that does not open may have moved. Search for its title or file name and look for an old copy on web.archive.org (https://archive.org/wayback/available?url=<link> also works). Only if both find nothing, write "does not open, probably invented". If you could not check the archive, say so. Never state "invented" as a fact.
-4. If the cited source does not say the claim, or does not open, look for a stronger source. If you find the claim there, tag it by that source and note "misattribution" (dead links are counted with the links, not as misattributions). Tag [U] only if you could not check the claim anywhere.
+3. Open every cited link with web browsing, one by one, and check that it really says the claim. Open the cited sources first; search for other sources only when needed.
+   - A link counts as open only if you actually retrieved its page in this conversation. For every page you use, copy a short phrase (at most 10 words) from it that supports or contradicts the claim; that quote is your proof of reading. No quote means the page was not read: say so, and never describe a page from memory.
+   - If you cannot browse the web in this chat, say so at the start and tag every claim [U].
+   - If a link does not load, do not assume a tool problem. Try it once more. Then search for its title or file name and look for an old copy on web.archive.org (https://archive.org/wayback/available?url=<link> also works). If nothing shows that the page exists, write "does not open, probably invented"; if you could not check, say so. Never state "invented" as a fact.
+   - A source you could not open is never cited in your corrected version.
+4. For every claim, record whether the cited source itself states it: yes, partly, no, or did not open. Check the exact detail, not just the topic: if the page gives the date but not the place, that is "partly". If the answer is not "yes", look for a stronger source. If you find the claim there, tag it by that source and note "misattribution" (dead links are counted with the links, not as misattributions). Tag [U] only if you could not check the claim anywhere.
    - If the cited source is secondary and states the claim correctly, check it against a primary source where you can ([V]); otherwise tag [S].
    - A rounded number is verified if rounding the source's exact value gives it; put the exact value in the note.
-5. Tag every claim (English / Turkish tags):
+5. Tag every claim. Use the Turkish tags when you reply in Turkish, the English tags otherwise:
    - [V] / [D] verified: you opened a primary source and it says this
    - [U] / [K] a source is cited but you could not open it
    - [S] / [İ] found only in secondary sources
    - [C] / [Ç] sources disagree
    - [W] / [Y] wrong: a primary source says something else; give the correct information with its source
    - [N] / [B] not in the cited source and not found anywhere else
-6. Reply with:
-   - one line with the count for every tag used, e.g. "N claims: a [V], b [W], c [N], d [S]; misattributions: e; links: k/n open (f probably invented)"
-   - a table: No. | Claim | Cited source | Tag | Correct information or note | Source checked
-   - a corrected version with only verified and corrected information; keep the source numbers and list any replacement sources
-   - an Assessment: what can be trusted and what cannot
+6. Reply in this order, with every heading and label in the user's language (in Turkish, "Assessment" is "Değerlendirme"):
+   - **Summary:** one line with the count for every tag used, then misattributions and links, e.g. "9 claims: 8 [V], 1 [W]; misattributions: 1; links: 2/3 open (1 probably invented)"
+   - **Links:** one line per cited link: opened (with its quote), blocked, or does not open, and what you tried
+   - **Table:** No. | Claim | Cited source | Cited source says it? | Tag | Quote and note | Source checked
+   - **Corrected version:** only verified and corrected information, citing only sources you opened; list any replacement sources
+   - **Assessment:** what can be trusted and what cannot
 7. Add nothing beyond what the sources say.

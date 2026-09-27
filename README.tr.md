@@ -101,8 +101,9 @@ Skill seninle senin dilinde konuşur; promptları ve belgeleri de senin dilinde 
 
 ## Durum ve sınırlar
 
-- **Test edilenler:** macOS'ta Claude Code ile üç bölüm, scriptler, DOCX ve PDF üretimi. Sohbet sürümü, bir sohbet uygulamasının yerine Claude kullanılarak test edildi: yalnızca talimat dosyası ve web taraması, script yok.
-- **Henüz test edilmeyenler:** Codex, Antigravity CLI, Gemini CLI, claude.ai, ChatGPT ve Gemini uygulamaları. Hepsi aynı açık skill biçimini ya da düz talimatları okuduğu için çalışması beklenir; geri bildirim memnuniyetle karşılanır.
+- **Test edilenler:** macOS'ta Claude Code ile üç bölüm, scriptler, DOCX ve PDF üretimi. Sohbet sürümü ChatGPT ve Gemini uygulamalarında Apollo örneğiyle test edildi: ikisi de yanlış bilgiyi yakaladı ve açılmayan bağlantıyı kaynak göstermek yerine raporladı.
+- **Sohbet sürümünün sınırı:** Bu testlerde iki uygulama da atıf hatasını kaçırdı (doğru bir bilginin gösterilen sayfada yazmaması). Kaynakları scriptlerle açıp içinde arayan ajan sürümü bunu her testte yakaladı.
+- **Henüz test edilmeyenler:** Codex, Antigravity CLI, Gemini CLI ve claude.ai. Hepsi aynı açık skill biçimini okuduğu için çalışması beklenir; geri bildirim memnuniyetle karşılanır.
 - Büyük araştırma zaten ödediğin aracı kullanır. Koşu promptlarını kendin yapıştırır, cevapları geri getirirsin; API anahtarı gerekmez.
 - Kontrol, açılabilen kaynaklar kadar iyidir. Ücretli ya da erişimi engellenmiş sayfalar [K] olarak kalır.
 

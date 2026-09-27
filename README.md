@@ -101,8 +101,9 @@ The skill talks to you in your language and writes prompts and documents in it. 
 
 ## Status and limits
 
-- **Tested:** Claude Code on macOS, with all three parts, the scripts and the DOCX and PDF builds. The chat edition was tested with Claude standing in for a chat app: only the instructions file and web browsing, no scripts.
-- **Not tested yet:** Codex, Antigravity CLI, Gemini CLI, claude.ai, and the ChatGPT and Gemini apps. They read the same open skill format or plain instructions, so they should work; reports are welcome.
+- **Tested:** Claude Code on macOS, with all three parts, the scripts and the DOCX and PDF builds. The chat edition was tested in the ChatGPT and Gemini apps with the Apollo example: both caught the wrong fact and reported the dead link instead of citing it.
+- **Chat edition limit:** In those tests, both apps missed the misattribution (a correct fact that the cited page does not contain). The agent version, which opens and searches each source with scripts, caught it every time.
+- **Not tested yet:** Codex, Antigravity CLI, Gemini CLI and claude.ai. They read the same open skill format, so they should work; reports are welcome.
 - Big research uses the tool you already pay for. You paste the run prompts yourself and bring the answers back; no API keys are needed.
 - A check is only as good as the sources that can be opened. Paywalled or blocked pages stay [U].
 
