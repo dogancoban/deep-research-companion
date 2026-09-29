@@ -116,3 +116,7 @@ Fikirler kopyalanmadan uyarlandı: [claude-skill-perplexity-prompting](https://g
 ## Lisans
 
 [MIT](LICENSE)
+
+## Gemini CLI eklentisi
+
+`gemini extensions install https://github.com/dogancoban/deep-research-companion --ref main` komutuyla kurun, Gemini CLI oturumunu yeniden başlatın ve Kanıt Hattı’nı kullanmasını isteyin. Gemini uygulamasındaki ayrı Gem kurulumu için [Gemini kurulum rehberine](chat-apps/GEMINI-SETUP.md) bakın.

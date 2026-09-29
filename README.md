@@ -118,3 +118,7 @@ The method was first built in Turkish under the name **Kanıt Hattı** ("evidenc
 ## License
 
 [MIT](LICENSE)
+
+## Gemini CLI extension
+
+Install with `gemini extensions install https://github.com/dogancoban/deep-research-companion --ref main`, restart Gemini CLI, and ask it to use Deep Research Companion. For the separate Gemini app Gem, see [Gemini setup](chat-apps/GEMINI-SETUP.md).

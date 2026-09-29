@@ -1,0 +1,6 @@
+{
+  "name": "deep-research-companion",
+  "version": "1.3.0",
+  "description": "Kanıt Hattı: research prompts, source-based answer checks and research reports.",
+  "contextFileName": "GEMINI_EXTENSION.md"
+}
