@@ -64,14 +64,16 @@ The script reads only the start of each page; that does not count as reading it.
 
 ## 5. Present the result
 
-By default in the chat, in the user's language:
+By default in the chat, in this order, with every heading and label in the user's language (Turkish tags in a Turkish reply):
 1. **One-line summary** with the count for every tag used: "N claims: a [V], b [W], c [N], d [S]…; misattributions: e; links: k/n open (f probably invented)."
-2. **Table:** No. | Claim | Cited source | Tag | Correct information or note | Source checked
+2. **Links:** one line per cited link: opens, blocked or does not open, and what was tried.
+3. **Table:** No. | Claim | Cited source | Cited source says it? | Tag | Correct information or note | Source checked
+   - "Cited source says it?" is yes, partly, no or did not open.
    - "Source checked" holds the numbers of the sources that decided the tag. New sources get new numbers and are marked "new" in the source list.
-3. **Corrected version:** A short rewrite of the answer with only the verified and corrected information.
+4. **Corrected version:** A short rewrite of the answer with only the verified and corrected information.
    - Nothing new is added; corrections come from primary sources. A correction may carry a short explanation from the same source (e.g. what the two confused names really refer to).
-   - Source numbers are kept. The source that replaces a dead link is shown in the list.
-4. **Assessment:** Clearly marked as your own view: which parts of the answer can be trusted and which cannot.
+   - Source numbers are kept. A source that could not be opened is never cited; the source that replaces it is shown in the list.
+5. **Assessment:** Clearly marked as your own view: which parts of the answer can be trusted and which cannot.
 
 **If the user wants a document:**
 1. Ask for the format: DOCX, PDF or both.

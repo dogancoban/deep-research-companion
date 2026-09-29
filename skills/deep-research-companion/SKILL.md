@@ -36,7 +36,7 @@ The user decides whether to switch.
 - Do not carry context from memory or other projects into a research unless the user asks.
 - No invention: information comes from sources. Your own inference is marked "Assessment".
 - Keep unnecessary personal data out of prompts; they go to third-party tools.
-- Save quota: do repeated work with the scripts, do not reread files from the start, start agents only when needed.
+- Save quota: mechanical work (downloading, matching, assembling, building documents) runs as scripts on the user's computer; read only the lines you need, never whole pages or whole files; do not reread files; start agents only when needed.
 - Every job that needs files gets its own folder (`~/Documents/<Name>`, ASCII characters only), never inside another project. Copy results elsewhere only if the user asks; ask before overwriting a file there.
 
 ## Tags
@@ -67,5 +67,7 @@ All parts use the same tags; in the documents they are colored. Use the set that
 | `scripts/split_evidence.py`, `check_report.py` | Big research | Splitting evidence by question; checking the texts before the documents |
 | `scripts/check_links.py` | Answer check, big research | Checks whether every link in a text opens |
 | `scripts/fetch_source.py` | Answer check, big research | Downloads a source and converts it to text (`curl`, `pdftotext`) |
+| `scripts/prepare.sh`, `fetch_all.py`, `build_full.py`, `finish.sh` | Big research, stage 7 | Local-first verification: download every source, tag every finding automatically, assemble the full research, check, build the documents |
+| `scripts/snip.py` | Answer check, big research | Short snippets around a pattern in a downloaded source, instead of reading the whole page |
 | `scripts/doc_builder/` | When documents are wanted | DOCX and/or PDF with cover, contents, tables, glossary, index; needs Node and LibreOffice |
 | `assets/` | Big research, documents | Constitution templates (EN, TR), project README template, document settings template |

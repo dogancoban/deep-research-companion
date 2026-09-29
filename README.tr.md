@@ -85,7 +85,7 @@ Her bulgunun yanında bir etiket durur; belgelerde renklidir. Türkçe belgeler 
 ## Gerekenler
 
 - **Prompt yazma ve cevap doğrulama:** Ek bir şey gerekmez. Bağlantı kontrolü için Python 3 ve curl yeter; ikisi de macOS'ta ve çoğu Linux'ta hazır gelir.
-- **Büyük araştırma:** Python 3.
+- **Büyük araştırma:** Kaynakları bilgisayarında indirip kontrol etmek için Python 3, curl ve Poppler (`pdftotext`). macOS'ta: `brew install poppler`.
 - **DOCX ve PDF belgeler:** Node.js 18+, LibreOffice ve Poppler. macOS'ta: `brew install node poppler && brew install --cask libreoffice`.
 
 ## Diller
@@ -97,15 +97,17 @@ Skill seninle senin dilinde konuşur; promptları ve belgeleri de senin dilinde 
 - **Arama aracı toplar, asistanın doğrular.** Arama araçları kaynak bulmakta hızlı, kaynağı doğru aktarmakta güvenilmezdir. Skill'i çalıştıran asistan (Claude, ChatGPT, Gemini…) kaynakları açar ve gerçekte ne yazdığına bakar.
 - **Büyük araştırma sabit kurallarla ilerler.** Her koşu aynı kuralları (bir "anayasa") taşır, sorular bir kapsam listesinde izlenir ve diğerlerinden önce tek bir pilot koşu kontrol edilir.
 - **Sonda yeni bilgi eklenmez.** Belgelere yalnızca toplanmış ve etiketlenmiş bulgular girer. Asistanın kendi çıkarımları "Değerlendirme" diye işaretlenir.
+- **Mekanik işi bilgisayarın yapar.** Büyük araştırmada scriptler bütün kaynakları indirir, her bulgunun rakamlarını indirilen metinde arar, tam araştırmayı birleştirir ve belgeleri üretir. Asistan elle yalnızca özetin dayandığı bulguları okur; doğrulama hem daha hızlı biter hem çok daha az token harcar.
 - **Konudan bağımsızdır.** Skill'de hazır konu listesi yoktur. Soruları, kaynak sırasını ve neyin kaydedileceğini senin konundan ve amacından çıkarır.
 
 ## Durum ve sınırlar
 
 - **Test edilenler:** macOS'ta Claude Code ile üç bölüm, scriptler, DOCX ve PDF üretimi. Sohbet sürümü ChatGPT ve Gemini uygulamalarında Apollo örneğiyle test edildi: ikisi de yanlış bilgiyi yakaladı ve açılmayan bağlantıyı kaynak göstermek yerine raporladı.
 - **Sohbet sürümünün sınırı:** Bu testlerde iki uygulama da atıf hatasını kaçırdı (doğru bir bilginin gösterilen sayfada yazmaması). Kaynakları scriptlerle açıp içinde arayan ajan sürümü bunu her testte yakaladı.
+- **Yerel doğrulama:** macOS'ta Claude Code ile 24 koşulu, 280 kaynaklı bir projede test edildi: scriptler birkaç dakikada 225 kaynağı indirdi ve 569 bulguyu otomatik doğruladı; özetin kalan önemli bulgularını asistan elle kontrol etti.
 - **Henüz test edilmeyenler:** Codex, Antigravity CLI, Gemini CLI ve claude.ai. Hepsi aynı açık skill biçimini okuduğu için çalışması beklenir; geri bildirim memnuniyetle karşılanır.
 - Büyük araştırma zaten ödediğin aracı kullanır. Koşu promptlarını kendin yapıştırır, cevapları geri getirirsin; API anahtarı gerekmez.
-- Kontrol, açılabilen kaynaklar kadar iyidir. Ücretli ya da erişimi engellenmiş sayfalar [K] olarak kalır.
+- Kontrol, açılabilen kaynaklar kadar iyidir. Ücretli ya da erişimi engellenmiş sayfalar [K] olarak kalır; bot doğrulamaları ve CAPTCHA'lar asla geçilmeye çalışılmaz. `[D, oto]`, rakamların kaynakta script tarafından bulunduğu anlamına gelir; bağlam okunmamıştır.
 
 ## Teşekkür
 

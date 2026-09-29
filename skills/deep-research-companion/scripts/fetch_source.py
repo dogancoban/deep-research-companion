@@ -14,6 +14,8 @@ import sys
 import urllib.parse
 from pathlib import Path
 
+# A browser-like request: many sites refuse a bare "Mozilla/5.0" with HTTP 403.
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
 name, url = sys.argv[1], sys.argv[2]
 p = urllib.parse.urlsplit(url)
 url = urllib.parse.urlunsplit((p.scheme, p.netloc, urllib.parse.quote(urllib.parse.unquote(p.path)), p.query, p.fragment))
@@ -23,7 +25,7 @@ here.mkdir(parents=True, exist_ok=True)
 raw = here / f"{name}.bin"
 code = ""
 for extra in ([], ["-k"]):
-    r = subprocess.run(["curl", "-sSL", "--max-time", "60", "-A", "Mozilla/5.0", *extra, "-o", str(raw), "-w", "%{http_code}", url],
+    r = subprocess.run(["curl", "-sSL", "--compressed", "--max-time", "60", "-A", UA, "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "-H", "Accept-Language: en-US,en;q=0.9", *extra, "-o", str(raw), "-w", "%{http_code}", url],
                        capture_output=True, text=True)
     code = r.stdout.strip()
     if r.returncode == 0 and raw.exists() and raw.stat().st_size > 500:

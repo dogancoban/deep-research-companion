@@ -85,7 +85,7 @@ Turkish documents use [D] [K] [İ] [Ç] [Y] [B].
 ## Requirements
 
 - **Prompt writing and answer check:** nothing extra. The link check needs Python 3 and curl, which come with macOS and most Linux systems.
-- **Big research:** Python 3.
+- **Big research:** Python 3, curl and Poppler (`pdftotext`) to download the sources and check them on your computer. On macOS: `brew install poppler`.
 - **DOCX and PDF documents:** Node.js 18+, LibreOffice and Poppler. On macOS: `brew install node poppler && brew install --cask libreoffice`.
 
 ## Languages
@@ -97,15 +97,17 @@ The skill talks to you in your language and writes prompts and documents in it. 
 - **The search tool collects, your assistant verifies.** Search tools are fast at finding sources and unreliable at reporting them. The assistant running the skill (Claude, ChatGPT, Gemini…) opens the sources and checks what they actually say.
 - **Big research follows fixed rules.** Every run gets the same rules (a "constitution"), questions are tracked on a coverage list, and one pilot run is checked before the others.
 - **Nothing new at the end.** Only collected, tagged findings go into the documents. The assistant's own conclusions are marked "Assessment".
+- **Your computer does the mechanical work.** In big research, scripts download every source, check each finding's numbers against the downloaded text, assemble the full research and build the documents. The assistant reads by hand only the findings that decide the summary, so verification is faster and uses far fewer tokens.
 - **Topic-independent.** The skill has no topic lists. It works out the questions, the source ranking and what to record from your topic and your goal.
 
 ## Status and limits
 
 - **Tested:** Claude Code on macOS, with all three parts, the scripts and the DOCX and PDF builds. The chat edition was tested in the ChatGPT and Gemini apps with the Apollo example: both caught the wrong fact and reported the dead link instead of citing it.
 - **Chat edition limit:** In those tests, both apps missed the misattribution (a correct fact that the cited page does not contain). The agent version, which opens and searches each source with scripts, caught it every time.
+- **Local-first verification:** tested in Claude Code on macOS on a 24-run project with 280 sources: the scripts downloaded 225 sources and verified 569 findings automatically in a few minutes; the assistant checked the rest of the summary's key findings by hand.
 - **Not tested yet:** Codex, Antigravity CLI, Gemini CLI and claude.ai. They read the same open skill format, so they should work; reports are welcome.
 - Big research uses the tool you already pay for. You paste the run prompts yourself and bring the answers back; no API keys are needed.
-- A check is only as good as the sources that can be opened. Paywalled or blocked pages stay [U].
+- A check is only as good as the sources that can be opened. Paywalled or blocked pages stay [U]; bot checks and CAPTCHAs are never bypassed. `[V, auto]` means the numbers were found in the source by a script; the context was not read.
 
 ## Credits
 

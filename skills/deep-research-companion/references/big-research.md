@@ -87,14 +87,12 @@ Build **one** extra run package for the questions in EMPTY, PARTIAL and CONFLICT
 
 ## 7. Verification and writing
 
-The rules, tags and the structure of both documents are in `references/verify-and-write.md`. In short:
+Local-first: scripts on the user's computer do the mechanical work (downloading, matching, assembling, building); the assistant does only what needs judgment. The rules, tags, both documents' structure and the hand-check rules are in `references/verify-and-write.md`. In short:
 
-1. If `plan.json` has no `output.format`, ask the user: DOCX, PDF or both.
-2. `python3 kit/split_evidence.py` splits the evidence by question into `report/_evidence/`. `python3 kit/check_links.py report/_evidence/_source_list.md` shows dead links up front.
-3. Open and verify the findings at their sources (PDFs included). First those that will decide the summary's conclusions, then numbers, dates and names. A finding that was not opened keeps its tag.
-4. `report/FULL_RESEARCH.md` holds every module and every question with all the collected detail. It is not a summary; nothing is dropped.
-5. `report/SUMMARY.md` is drawn from the full research. Conclusions rest only on verified findings. If the user asked for a roadmap, build it from verified findings only.
-6. `python3 kit/check_report.py` shows missing questions, untagged sections, leftover tool codes and numbers not found in the evidence.
-7. `bash kit/doc_builder/build.sh` produces the two documents in the chosen format. If `output.copy` is set, copy them there.
+1. If `plan.json` has no `output.format`, ask the user: DOCX, PDF or both. Fill in `report/document.json` from the skill's `assets/document.json`.
+2. `bash kit/prepare.sh` (the user may run it): names the outputs, updates coverage, splits the evidence, downloads every source (`fetch_all.py`) and writes `report/FULL_RESEARCH.md` with a tag on every finding (`build_full.py`). A finding whose numbers all occur in its downloaded source gets `[V, auto]`.
+3. Hand checks, only where they matter: the findings that will decide the summary and are not `[V, auto]` in `report/_auto_verify.tsv`. Search downloaded texts with `python3 kit/snip.py`; fetch only the lines you need from pages that did not download. Record every result in `report/_manual_checks.tsv` and `report/_verification_log.md`. Other findings keep their automatic tags.
+4. Write `report/SUMMARY.md` from the full research: read the short answers and table rows you need, never the whole text. Conclusions rest only on verified findings. If the user asked for a roadmap, build it from verified findings only.
+5. `bash kit/finish.sh`: rebuilds the full research with the hand checks, runs `check_report.py` and builds the two documents. Fix only the lines it flags and run it again. If `output.copy` is set, copy the documents there.
 
 Neither text adds anything new. What stays unanswered goes into the summary's "open questions" chapter.

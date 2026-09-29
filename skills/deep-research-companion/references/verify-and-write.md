@@ -11,6 +11,27 @@ The collected outputs are a pool of evidence, not accepted as true. In this stag
 - The full research must stand on its own: even if the project folder is deleted, every finding and every source link stays in the document.
 - The full research is written first; the summary is drawn from it.
 
+## 0. Local-first route (default)
+
+Mechanical work runs as scripts on the user's computer and costs no model quota; the assistant spends its effort only on judgment: which findings decide the summary, reading them at the source, writing the summary.
+
+| Step | Command | Result |
+|---|---|---|
+| Prepare | `bash kit/prepare.sh` | outputs named, coverage, `report/_evidence/`, every source in `report/_downloads/` (`_index.tsv`: ok, thin = probably a JavaScript page, error), `report/FULL_RESEARCH.md` with a tag on every finding, `report/_auto_verify.tsv` and `_auto_verify_summary.md` |
+| Check by hand | `python3 kit/snip.py <srcNNN or url> <regex> …` | short snippets around the numbers or names you look for, instead of the whole page |
+| Record | `report/_manual_checks.tsv`, `report/_verification_log.md` | hand results; `build_full.py` applies them to every finding that cites the URL and contains the given text (or `*` for all) |
+| Finish | `bash kit/finish.sh [format]` | full research rebuilt, `check_report.py`, documents built |
+
+How `build_full.py` tags a finding (the text before a `[S1][S2]` citation, or a table row with source codes): all its numbers (two or more digits, or with %, $ or x) occur in a downloaded cited source → `[V, auto]`; some or none → `[U, partial match]` / `[U, no match]`; the source did not download → `[U, source did not open]`; no numbers → `[U]`; `[SECONDARY ONLY]` → `[S]`; `[CONFLICT]` → `[C]`. Turkish documents use `[D, oto]`, `[K, …]`, `[İ]`, `[Ç]`. Optional `plan.json` keys: `type_names` (readable source-type names) and `run_notes` (a note shown next to a run, e.g. an early pilot).
+
+Rules for saving quota without losing quality:
+- A number match is not a full check: the context was not read. Read the summary's deciding findings at the source even when they are `[V, auto]`; a short snippet around the number is enough.
+- Start from `_auto_verify.tsv`: filter the question codes and rows the summary will use. A row that misses only a number from another source (e.g. an employee count from a company-data site) needs no reading of the main source.
+- A page that did not download: try a web fetch that answers one narrow question, or open it in a browser and extract only the matching lines with a small script. Never read or paste a whole page.
+- Bot checks and CAPTCHAs are never passed: the finding keeps `[U, source did not open]`. A fact seen only in search-result text is recorded as `[U, search confirmation]`, not `[V]`.
+- Never read the whole full research or all outputs: extract the short answers and the table rows you need (e.g. with a few lines of Python).
+- `check_report.py` and `finish.sh` point to the lines to fix; fix only those.
+
 ## 1. Split the evidence by question
 
 `python3 kit/split_evidence.py` writes to `report/_evidence/`:
@@ -76,7 +97,7 @@ The summary is a separate document: <Name>_Summary.
 
 (Turkish documents: `Ek A.`, `Ek B.`, `Ek C.`.) A question with no evidence at all is still written with its heading ("No run returned a sourced answer to this question.") and added to the summary's open questions.
 
-**Large projects:** Write module by module: `report/full/00_intro.md`, then `01_<module code>.md`, `02_…` in plan order and `99_appendices.md` last. Then join them: `cat report/full/*.md > report/FULL_RESEARCH.md`. With more than 20 questions, give modules to sub-agents: at most 5 at a time; a cheaper model is enough. Give each agent the module's `_evidence/Qxx.md` files, `_verification_log.md` and sections 3–5 of this file. The agent writes only its own module file; it adds nothing new and opens no sources.
+**Large projects:** With the local-first route, `build_full.py` assembles this text from the evidence automatically; nothing is dropped and nothing new is added. Only if the user wants a rewritten, smoother text: write module by module: `report/full/00_intro.md`, then `01_<module code>.md`, `02_…` in plan order and `99_appendices.md` last. Then join them: `cat report/full/*.md > report/FULL_RESEARCH.md`. With more than 20 questions, give modules to sub-agents: at most 5 at a time; a cheaper model is enough. Give each agent the module's `_evidence/Qxx.md` files, `_verification_log.md` and sections 3–5 of this file. The agent writes only its own module file; it adds nothing new and opens no sources.
 
 ## 6. Summary: `report/SUMMARY.md`
 
@@ -114,7 +135,7 @@ Open and fix only the flagged lines; never reread the whole text. A correct numb
 
 1. `kit/doc_builder/` should have been copied when the package was built; otherwise copy the skill's `scripts/doc_builder/`.
 2. Copy the skill's `assets/document.json` to `report/document.json` and fill it in: language (`en` or `tr`), cover subtitle, topics, date, tool. The glossary and the index are optional. Glossary definitions come only from verified findings; the glossary goes into both documents. The index goes only into the full research; its terms are regular expressions, with backslashes doubled in JSON (`\\b`).
-3. Run `bash kit/doc_builder/build.sh`. It reads the format from `plan.json`; it can also be given by hand (`build.sh pdf`). The result: `report/<Name>_Full_Research` and `report/<Name>_Summary` (Turkish: `_Tam_Arastirma`, `_Ozet`) in the chosen format. `<Name>` is `output.file_name`, otherwise the ASCII form of the project name.
+3. Run `bash kit/finish.sh` (or `bash kit/doc_builder/build.sh` alone). It reads the format from `plan.json`; it can also be given by hand (`build.sh pdf`). The result: `report/<Name>_Full_Research` and `report/<Name>_Summary` (Turkish: `_Tam_Arastirma`, `_Ozet`) in the chosen format. `<Name>` is `output.file_name`, otherwise the ASCII form of the project name.
 4. Visual check: open a few pages of each document as images (cover, contents, a table page, the index). If a word breaks in a narrow column, raise the minimums in `colWidths` in `make_docx.js`.
 5. If `plan.json` has `output.copy`, copy the two documents there in the chosen format; ask before overwriting a file there.
 

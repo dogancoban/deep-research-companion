@@ -23,7 +23,7 @@ DEST = ROOT / "report" / "_evidence"
 PART = re.compile(r"^[#*\s]*([XYZ])\.\s", re.M)
 CROSS = re.compile(r"\[CROSS-MODULE EVIDENCE:\s*(Q\d{2,3})\s*\]")
 CITE = re.compile(r"\[([^\]\n]*\bS\d+\b[^\]\n]*)\]")
-FOOTNOTE = re.compile(r"(?:\[\^?\d{1,3}\](?:\([^)\s]*\))?)+")
+FOOTNOTE = re.compile(r"(?:\[\^?\d{1,3}(?:_\d{1,3})?\](?:\([^)\s]*\))?)+")
 URL = re.compile(r"https?://[^\s|)\]>]+")
 
 
