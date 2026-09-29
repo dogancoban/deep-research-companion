@@ -1,4 +1,4 @@
-# Deep Research Companion (Kanıt Hattı)
+# Deep Research Companion
 
 [English](README.md) | Türkçe
 
@@ -6,7 +6,7 @@
 
 Yapay zekâ arama araçları kendinden emin cevaplar ve kaynaklar verir. Bazı kaynaklar cevabın söylediğini söylemez, bazıları hiç yoktur. Deep Research Companion, zaten kullandığın arama aracının yanında çalışan bir ajan skill'idir. Promptu yazar, gelen cevabı iddia iddia kaynağından kontrol eder. Büyük sorularda ise sonunda iki belge çıkaran tam bir araştırma yürütür: tam araştırma ve özet.
 
-Konu fark etmez: tarih, sağlık, bilim, hukuk, müzik, pazar. Sorular skill'den değil, senin konundan çıkar. Yöntemin Türkçe adı **Kanıt Hattı**.
+Konu fark etmez: tarih, sağlık, bilim, hukuk, müzik, pazar. Sorular skill'den değil, senin konundan çıkar.
 
 ## Örnek
 
@@ -119,4 +119,4 @@ Fikirler kopyalanmadan uyarlandı: [claude-skill-perplexity-prompting](https://g
 
 ## Gemini CLI eklentisi
 
-`gemini extensions install https://github.com/dogancoban/deep-research-companion --ref main` komutuyla kurun, Gemini CLI oturumunu yeniden başlatın ve Kanıt Hattı’nı kullanmasını isteyin. Gemini uygulamasındaki ayrı Gem kurulumu için [Gemini kurulum rehberine](chat-apps/GEMINI-SETUP.md) bakın.
+`gemini extensions install https://github.com/dogancoban/deep-research-companion --ref main` komutuyla kurun, Gemini CLI oturumunu yeniden başlatın ve Deep Research Companion’ı kullanmasını isteyin. Gemini uygulamasındaki ayrı Gem kurulumu için [Gemini kurulum rehberine](chat-apps/GEMINI-SETUP.md) bakın.

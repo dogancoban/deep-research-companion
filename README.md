@@ -113,7 +113,7 @@ The skill talks to you in your language and writes prompts and documents in it. 
 
 Ideas were adapted, not copied, from [claude-skill-perplexity-prompting](https://github.com/joelhelbling/claude-skill-perplexity-prompting), from fact-checking skills, and from the citation checks in [academic-research-skills](https://github.com/Imbad0202/academic-research-skills).
 
-The method was first built in Turkish under the name **Kanıt Hattı** ("evidence line").
+The method was first developed in Turkish.
 
 ## License
 

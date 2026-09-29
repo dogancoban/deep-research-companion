@@ -1,7 +1,7 @@
 {
   "name": "deep-research-companion",
   "version": "1.3.0",
-  "description": "Evidence-first research prompts, claim-by-claim source checks, and research reports. Turkish name: Kanıt Hattı.",
+  "description": "Evidence-first research prompts, claim-by-claim source checks, and research reports.",
   "author": {
     "name": "Doğan Çoban",
     "url": "https://github.com/dogancoban"
@@ -12,12 +12,11 @@
   "keywords": [
     "research",
     "fact-checking",
-    "citations",
-    "kanit-hatti"
+    "citations"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Kanıt Hattı · Deep Research Companion",
+    "displayName": "Deep Research Companion",
     "shortDescription": "Araştırma soruları ve kaynaklara dayalı iddia kontrolü.",
     "longDescription": "Araştırma sorusu hazırlayın, yapay zekâ cevaplarını kaynaklarıyla karşılaştırın ve uygun çalışma ortamında araştırma raporları oluşturun. Erişilemeyen kaynaklar ve doğrulanamayan iddialar açıkça belirtilir. Sayısal eşleşme, bağlam doğrulaması değildir.",
     "developerName": "Doğan Çoban",
@@ -25,7 +24,7 @@
     "capabilities": [],
     "websiteURL": "https://github.com/dogancoban/deep-research-companion",
     "defaultPrompt": [
-      "Bu cevabı Kanıt Hattı ile kaynaklarına göre kontrol et.",
+      "Bu cevabı Deep Research Companion ile kaynaklarına göre kontrol et.",
       "Bu konu için kaynak isteyen bir araştırma promptu hazırla.",
       "Bu araştırmayı tam rapor ve özet olarak planlayalım."
     ]

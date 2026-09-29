@@ -15,8 +15,8 @@ Check installation with `gemini extensions list`. Update with `gemini extensions
 ## Gemini app (Gem)
 
 1. Open https://gemini.google.com/gems/view .
-2. If a Deep Research Companion / Kanıt Hattı Gem already exists, edit it instead of making a duplicate. Otherwise select New Gem.
-3. Name: **Kanıt Hattı — Deep Research Companion**.
+2. If a Deep Research Companion Gem already exists, edit it instead of making a duplicate. Otherwise select New Gem.
+3. Name: **Deep Research Companion**.
 4. Instructions: paste the complete contents of [instructions.md](instructions.md).
 5. Save. Start a chat and paste an answer with its source URLs.
 

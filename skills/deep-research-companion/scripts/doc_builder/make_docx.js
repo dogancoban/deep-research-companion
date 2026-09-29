@@ -34,8 +34,8 @@ const LABELS = {
     ends: (items) => `Sonda ${items.join(" ve ")} vardır.`, items: { glossary: "bir terimler sözlüğü", index: "bir konu dizini" },
     months: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
     tool: "bir arama aracı", checkTool: "bir yapay zekâ aracının", assistant: "bir yapay zekâ asistanı",
-    noteResearch: (t, a) => `Kanıt Hattı (Deep Research Companion) yöntemiyle hazırlanmıştır: kaynaklar ${t} ile toplandı, metni ${a} yazdı. Her bilginin doğrulama durumu yanındaki etiketle gösterilir.`,
-    noteCheck: (t, a) => `Kanıt Hattı (Deep Research Companion) yöntemiyle hazırlanmıştır: ${t} cevabındaki iddialar ${a} tarafından kaynaklarından kontrol edildi. Her iddianın sonucu yanındaki etiketle gösterilir.`,
+    noteResearch: (t, a) => `Deep Research Companion yöntemiyle hazırlanmıştır: kaynaklar ${t} ile toplandı, metni ${a} yazdı. Her bilginin doğrulama durumu yanındaki etiketle gösterilir.`,
+    noteCheck: (t, a) => `Deep Research Companion yöntemiyle hazırlanmıştır: ${t} cevabındaki iddialar ${a} tarafından kaynaklarından kontrol edildi. Her iddianın sonucu yanındaki etiketle gösterilir.`,
     pending: "(dizin hesaplanacak)",
   },
 };
