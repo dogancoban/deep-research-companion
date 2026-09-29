@@ -11,7 +11,7 @@ Checks a single answer from an AI tool (Perplexity, ChatGPT, Gemini or similar) 
   - Read the pages with your web fetch tool.
   - Do not run `fetch_source.py` from the skill folder; it writes its downloads next to itself.
 - **Long answer, or documents wanted:** Set up a working folder.
-  - Folder: `~/Documents/<Topic>-Check/` (ASCII characters only).
+  - Folder: `<Topic>-Check/` (ASCII characters only), where SKILL.md says job folders go: the user's folder rule if there is one, otherwise `~/Documents/`.
   - Copy the skill's `scripts/` folder into it as `kit/`.
   - Save the answer as `answer.md`.
 

@@ -37,7 +37,7 @@ The user decides whether to switch.
 - No invention: information comes from sources. Your own inference is marked "Assessment".
 - Keep unnecessary personal data out of prompts; they go to third-party tools.
 - Save quota: mechanical work (downloading, matching, assembling, building documents) runs as scripts on the user's computer; read only the lines you need, never whole pages or whole files; do not reread files; start agents only when needed.
-- Every job that needs files gets its own folder (`~/Documents/<Name>`, ASCII characters only), never inside another project. Copy results elsewhere only if the user asks; ask before overwriting a file there.
+- Every job that needs files gets its own folder (ASCII characters only), never inside an unrelated project. If the user has a folder rule (for example in CLAUDE.md or AGENTS.md), put the folder where that rule says; otherwise use `~/Documents/<Name>`. Copy results elsewhere only if the user asks; ask before overwriting a file there.
 
 ## Tags
 

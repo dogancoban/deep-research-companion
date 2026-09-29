@@ -46,7 +46,7 @@ Before designing runs, check the 3–6 critical assumptions the plan rests on ag
 └── report/         _evidence/, _downloads/, _verification_log.md, FULL_RESEARCH.md, SUMMARY.md, document.json and the two documents
 ```
 
-1. **Folder:** Create the folder (`~/Documents/<Project-Name>`, ASCII characters only) and copy everything in the skill's `scripts/` folder (`doc_builder/` included) into `kit/`.
+1. **Folder:** Create the folder `<Project-Name>` (ASCII characters only) where SKILL.md says job folders go: the user's folder rule if there is one, otherwise `~/Documents/`. Copy everything in the skill's `scripts/` folder (`doc_builder/` included) into `kit/`.
 2. **Constitution:**
    - The constitution and the runs are written in the user's language. Copy `assets/constitution_en.txt` or `constitution_tr.txt` to `kit/CONSTITUTION-<CODE>_v1.0.txt`. For another language, translate the template into it.
    - Fill in the `{{…}}` fields with what planning settled: role, scenario, target context, time, source types and order, search, output language.
