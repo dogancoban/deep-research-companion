@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "deep-research-companion",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Evidence-first research prompts, claim-by-claim source checks, and research reports. Turkish name: Kanıt Hattı.",
   "author": {
     "name": "Doğan Çoban",
